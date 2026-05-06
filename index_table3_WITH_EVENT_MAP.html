@@ -1,0 +1,3478 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>RAVEN 2 — Boss Timer</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<h1>RAVEN 2 — Boss Timer</h1>
+<div id="clock" class="clock">--:--:--</div>
+
+<div class="wrapper">
+<table id="timer"></table>
+</div>
+
+<div class="wrapper">
+  <div class="rankTableWrapper">
+    <table class="rankTable">
+
+      <colgroup>
+        <col style="width: 15%;">
+        <col style="width: 15%;">
+        <col style="width: 30%;">
+        <col style="width: 15%;">
+        <col style="width: 10%;">
+      </colgroup>
+
+      <thead>
+        <tr>
+        <th data-i18n="RANK_LOCATION"></th>
+        <th data-i18n="RANK_NEXT"></th>
+        <th data-i18n="RANK_RATING"></th>
+        <th data-i18n="RANK_BOSS"></th>
+        <th data-i18n="RANK_WIDGET"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td class="location-cell"></td>
+          <td>Next start</td>
+
+          <td rowspan="4" class="rank-column">
+            <div class="rank-wrapper">
+            <div class="rank-logo" id="rankLogo"></div>
+            </div>
+            <div id="ratingValue">0</div>
+          </td>
+
+          <td>-----</td>
+          <td class="control-cell">
+          <button data-i18n="BTN_CHANGE">🎮</button>
+          <button class="rating-sound-btn" data-i18n="BTN_SOUND_ON">🔊</button>
+          <button data-action="clear-row" data-i18n="BTN_CLEAR">🧹</button>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="location-cell"></td>
+          <td data-i18n="RANK_NEXT"></td>
+          <td data-i18n="CHAOS_TOWER"></td>
+          <td class="control-cell">
+          <button data-i18n="BTN_CHANGE">🎮</button>
+          <button class="rating-sound-btn" data-i18n="BTN_SOUND_ON">🔊</button>
+          <button data-action="clear-row" data-i18n="BTN_CLEAR">🧹</button>
+          </td>
+        </tr>
+
+        <!-- ROW 3 -->
+        <tr>
+          <td class="location-cell"></td>
+          <td>Next start</td>
+          <td>-----</td>
+          <td class="control-cell">
+          <button data-i18n="BTN_CHANGE">🎮</button>
+          <button class="rating-sound-btn" data-i18n="BTN_SOUND_ON">🔊</button>
+          <button data-action="clear-row" data-i18n="BTN_CLEAR">🧹</button>
+          </td>
+        </tr>
+
+        <!-- ROW 4 -->
+        <tr>
+          <td class="location-cell"></td>
+          <td>Next start</td>
+          <td>-----</td>
+          <td class="control-cell">
+            <button data-i18n="BTN_CHANGE">🎮</button>
+            <button class="rating-sound-btn" data-i18n="BTN_SOUND_ON">🔊</button>
+            <button data-action="clear-row" data-i18n="BTN_CLEAR">🧹</button>
+          </td>
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+</div>
+
+
+<div class="wrapper">
+  <h2></h2>
+  <table id="deathTimer">
+  <thead></thead>
+  <tbody>.</tbody>
+</table>
+</div>
+
+<div class="wrapper">
+  <h2></h2>
+  <table id="deathTimer3">
+    <thead>
+      <tr>
+        <th>Собития</th>
+        <th>Статус</th>
+        <th>Next start</th>
+        <th>Игроки</th>
+        <th>таймер</th>
+        <th>➕ / ➖</th>
+      </tr>
+    </thead>
+    <tbody>.</tbody>
+  </table>
+</div>
+
+<div class="wrapper">
+  <h2></h2>
+<table id="deathTimer5">
+  <thead>
+    <tr>
+     <th data-i18n="T3_EVENT"></th>
+      <th data-i18n="timeHeader"></th>
+      <th data-i18n="T3_STATUS"></th>
+      <th data-i18n="nextStart"></th>
+      <th data-i18n="timer"></th>
+      <th>➕ / ➖</th>
+    </tr>
+  </thead>
+  <tbody>.</tbody>
+</table>
+</div>
+
+<div class="wrapper">
+  <h2></h2>
+   <table id="event-table-6"><thead>
+    <tr>
+     <th data-i18n="T3_EVENT"></th>
+      <th data-i18n="timeHeader"></th>
+       <th data-i18n="T3_STATUS"></th>
+         <th data-i18n="nextStart"></th>
+           <th data-i18n="timer"></th>
+          <th>➕ / ➖</th>
+         </tr>
+        </thead>
+       <tbody>
+
+     <tr data-id="event2">
+      <td class="name6"></td>
+       <td class="event-time6">—</td>
+        <td class="status6">Ожидается</td>
+         <td class="cooldown6">—</td>
+           <td class="plann-cell"
+               contenteditable="true"
+               data-table="6"
+               data-event="event2">_</td>
+           <td>
+           
+
+            <button onclick="adjustTime6('event2', -1)">−</button>
+             <button onclick="adjustTime6('event2', 1)">+</button>
+            </td>
+           </tr>
+
+      <tr data-id="event3">
+       <td class="name6"></td>
+          <td class="event-time6">—</td>
+           <td class="status6">Ожидается</td>
+            <td class="cooldown6">—</td>
+              <td class="plann-cell"
+                  contenteditable="true"
+                  data-table="6"
+                  data-event="event3">_</td>
+                <td>
+                <button onclick="adjustTime6('event3', -1)">−</button>
+                <button onclick="adjustTime6('event3', 1)">+</button>
+               </td>
+              </tr>
+  
+       <tr data-id="event4">
+        <td class="name6"></td>
+          <td class="event-time6">—</td>
+           <td class="status6">Ожидается</td>
+            <td class="cooldown6">—</td>
+              <td class="plann-cell"
+                  contenteditable="true"
+                  data-table="6"
+                  data-event="event4">_</td>
+               <td>
+                <button onclick="adjustTime6('event4', -1)">−</button>
+                <button onclick="adjustTime6('event4', 1)">+</button>
+               </td>
+              </tr>
+
+       <tr data-id="event5">
+        <td class="name6"></td>
+          <td class="event-time6">—</td>
+           <td class="status6">Ожидается</td>
+            <td class="cooldown6">—</td>
+              <td class="plann-cell"
+                  contenteditable="true"
+                  data-table="6"
+                  data-event="event5">_</td>
+                <td>
+                <button onclick="adjustTime6('event5', -1)">−</button>
+                <button onclick="adjustTime6('event5', 1)">+</button>
+               </td>
+              </tr>
+             </tbody>
+            </table>
+           </div>
+
+<button id="controlPanelBtn">
+  <img src="img/gear.png" alt="settings">
+</button>
+
+<div id="topPanel" class="top-panel">
+  <div class="top-panel-content">
+
+    <!-- левая часть -->
+    <div class="panel-left">
+      <button class="ui-button" onclick="setLang('ru')">RU</button>
+      <button class="ui-button" onclick="setLang('en')">EN</button>
+     <div id="sound-panel">
+
+      <button id="soundToggle" class="ui-button">
+       🔇
+      </button>
+     <input
+     type="range"
+     id="volumeSlider"
+     min="0"
+     max="100"
+     value="70"
+     oninput="setVolume(this.value)"
+     title="Громкость"
+      />
+
+    </div>
+
+    </div>
+    <!-- центр -->
+    <div class="panel-center">
+        <button class="ui-button" onclick="buildTable1()">T1</button>
+        <button class="ui-button" onclick="updateTable6()">T6</button>
+
+      
+    </div>
+
+    <!-- правая часть -->
+    <div class="panel-right">
+      <div class="panel-center">
+        <button id="notesToggleBtn" class="ui-button">📝</button>
+       <div class="utc-controls">
+         <button id="resetTable1Btn" class="ui-button">🔄</button>
+
+         <button class="tz-btn ui-button" onclick="changeTZ(+1)">➕</button>
+          <span id="tz-value">UTC +0</span>
+         <button class="tz-btn ui-button" onclick="changeTZ(-1)">➖</button>
+       </div>
+
+      </div>
+      <button id="closePanel" class="ui-button">✖</button>
+    </div>
+
+  </div>
+</div>
+
+<div id="notesWindow">
+  <div id="notesHeader">📝 Нотатки</div>
+  <textarea id="notesArea" placeholder="Пиши свои заметки тут..."></textarea>
+  <div id="notesResize"></div>
+</div>
+
+<audio id="sound">
+  <source src="https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg">
+</audio>
+<audio id="markerSound" src="marker_click.mp3" preload="auto"></audio>
+<audio id="markerExpireSound" src="marker_expire.mp3" preload="auto"></audio>
+
+<button id="notesToggleBtn">📒 Pad .</button>
+<button onclick="openEpicGame()">🎮</button>
+<button onclick="openDiscord()">⚠️ chat support ⚠️</button>
+
+<a href="discord:/discord.com/channels/1455660376489463914/1455663825738006742" 
+id="discordBigBtn" title="Открыть Discord">
+  <img src="icons8-окруженный-раздором-64.png" alt="Discord">
+</a>
+<a href="com.epicgames.launcher://apps/8fac4611b4074c73bdc5cc123d505575%3Afc7720c3b0e74bf1902ec4c1a20e9ff9%3Af420ceaac9924a2790a438958101d8a4?action=launch&silent=true"
+   id="gameBigBtn"
+   title="Открыть игру">
+  <img src="epic.png" alt="Epic Game">
+</a>
+
+<div id="eventMapOverlay" onclick="closeEventMap()">
+  <div id="eventMapBox">
+    <div id="eventMapHeader">
+     <span id="eventMapTitle"></span>
+     </div>
+     <img id="eventMapImg">
+    <div id="abyssMarkerLayer"></div>
+    <div id="abyssEmojiControls">
+    <button data-color="green" data-title="TEAM" 🟢>🟢</button>
+    <button data-color="red" data-title="WAR" 🔴>🔴</button>
+    <button data-color="purple" data-title="VIP" 🟣>🟣</button>
+    <button data-color="blob" data-title="blob">🫧</button>
+    <button id="clearAbyssMarkersBtn" data-title="clear markers">🗑</button>
+
+    </div>
+  </div>
+</div>
+                                                     
+<div id="bossMapOverlay" onclick="closeBossMap()">
+  <div id="bossMapBox">
+   <div id="bossMapHeader">
+     <span id="bossMapTitle" class="mapHeaderTitle"></span>
+    </div>
+    <img id="bossMapImg">
+  </div>
+</div>
+
+
+<div id="ratingMapOverlay" class="ratingMapOverlay">
+  <div class="ratingMapBox">
+
+    <img id="ratingMapImage" src="">
+
+    <div id="ratingMarkerLayer"></div>
+
+    <div id="ratingEmojiControls">
+      <button data-type="green" data-title="TEAM">🟢</button>
+      <button data-type="red" data-title="WAR">🔴</button>
+      <button data-type="purple" data-title="VIP">🟣</button>
+      <button data-type="blob" data-title="blob">🫧</button>
+      <button id="clearRatingMarkers"
+        data-title="Clear markers">🗑</button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+
+
+
+
+const LANG = {
+  ru: {
+   timeHeader: "Время",
+daysShort: ["ПН","ВТ","СР","ЧТ","ПТ","СБ","ВС"],
+daysClock: ["ВС","ПН","ВТ","СР","ЧТ","ПТ","СБ"],
+
+boss: "Босс",
+status: "Статус",
+nextStart: "След. старт",
+players: "Игроки",
+timer: "Таймер",
+controls: "➕ / ➖",
+ready: "Готов",
+MORGON: "ДВУЛИКИЙ МОРГОН 4.*",
+NIDROK: "МАРИОНЕТКА НИДРОК 4.*",
+HYSTERIA: "ДРЕВНИЙ ДРАКОН ИСТЕРИЯ 4.*",
+SION: "СИОН. ТЕНЬ ОТЧАЯНИЯ 4.*",
+RIGRETO: "РИГРЕТОЮ ТЕНЬ ЗЛОБЫ 4.*",
+LUNOS: "ЛУНОС. ПОРЧЕННЫЙ ГЕРОЙ 4.*",
+FLAUD: "ФЛАУД ТЕМНОЕ ГЛУБ.МОРЕ 5.*",
+GARDON: "КОРОЛЬ ЗВЕРЕЙ ГАРДОН 4.*",
+BELLA: "ЛЕДИ ЖЕЛАНИЯ БЕЛЛА 4.*",
+CRATERIUS: "КРАТЕРИУС ИСКРИВЛЕННЫЙ 5.*",
+
+SOURCE_WEEKLY: "Ежедневние",
+SOURCE_DEATH: "Убойный Бос",
+SOURCE_ABYSS: "Бездна",
+SOURCE_RIFT: "Разлом",
+SOURCE_RAID: "Рейд",
+
+  raid: "RAID",
+    T3_EVENT: "События",
+    T3_STATUS: "Статус",
+    T3_NEXT: "След. старт",
+    T3_GROUP: "Игроки",
+    T3_PLAN: "Таймер",
+    T3_SHIFT: "➕ / ➖",
+    cooldown: "До старта",
+    ABYSS_F1: "Бездна F1",
+    ABYSS_F2: "Бездна F2",
+    ABYSS_F3: "Бездна F3",
+    ABYSS_F4: "Бездна F4",
+    PAUSE: "ПАУЗА",
+    NOW: "СЕЙЧАС",
+    
+  BTN_CHANGE: "🎮сменить",
+  BTN_SOUND_ON: "звук",
+  BTN_SOUND_OFF: "без звука",
+  BTN_CLEAR: "🧹очистить",
+
+  RANK_LOCATION: "Локация",
+  RANK_NEXT: "Следующий старт",
+  RANK_RATING: "Рейтинг",
+  RANK_BOSS: "Босс",
+  RANK_WIDGET: "Управление",
+  CHAOS_TOWER: "Башня хаоса",
+
+    waiting: "Ожидается",
+    active: "Активно",
+    missed: "Пропущено",
+    done: "Пройдено",
+   EVENT_FRACTURE: "Разлом",
+  EVENT_GUILD_DUNGEON_1: "Гильдейское подземелье (1 пати)",
+  EVENT_FORTRESS: "Древняя крепость",
+  EVENT_BATTLE: "Битва за крепость",
+  EVENT_GUILD_DUNGEON_2: "Гильдейское подземелье (2 пати)"
+  },
+
+  en: {
+timeHeader: "Time",
+daysShort: ["MON","TUE","WED","THU","FRI","SAT","SUN"],
+daysClock: ["SUN","MON","TUE","WED","THU","FRI","SAT"],
+
+boss: "Boss",
+status: "Status",
+nextStart: "Next start",
+players: "Players",
+timer: "Timer",
+controls: "+ / −",
+ready: "Ready",
+MORGON: "Two-Faced Morgon 4.*",
+NIDROK: "Puppet Nidrok 4.*",
+HYSTERIA: "Ancient Dragon Hysteria 4.*",
+SION: "Sion. Shadow of Despair 4.*",
+RIGRETO: "Rigreto Shadow of Malice 4.*",
+LUNOS: "Lunos. Corrupted Hero 4.*",
+FLAUD: "Flaud Dark Deep Sea 5.*",
+GARDON: "Beast King Gardon 4.*",
+BELLA: "Lady of Desire Bella 4.*",
+CRATERIUS: "Craterius Twisted 5.*",
+
+SOURCE_WEEKLY: "Weekly",
+SOURCE_DEATH: "Death Boss",
+SOURCE_ABYSS: "Abyss",
+SOURCE_RIFT: "Rift",
+SOURCE_RAID: "Raid",
+
+ raid: "RAID",
+    T3_EVENT: "Event",
+           T3_STATUS: "Status",
+           T3_NEXT: "Next start",
+           T3_GROUP: "Players",
+           T3_PLAN: "Timer",
+            T3_SHIFT: "+ / −",
+    cooldown: "Cooldown",
+    ABYSS_F1: "Abyss F1",
+    ABYSS_F2: "Abyss F2",
+    ABYSS_F3: "Abyss F3",
+    ABYSS_F4: "Abyss F4",
+    PAUSE: "PAUSED",
+    NOW: "NOW",
+
+ BTN_CHANGE: "🎮change",
+  BTN_SOUND_ON: "sound",
+  BTN_SOUND_OFF: "mute",
+  BTN_CLEAR: "🧹clear",
+
+ RANK_LOCATION: "Location",
+  RANK_NEXT: "Next start",
+  RANK_RATING: "Rating",
+  RANK_BOSS: "Boss",
+  RANK_WIDGET: "Widget",
+ CHAOS_TOWER: "Chaos Tower",
+
+    waiting: "Waiting",
+    active: "Active",
+    missed: "Missed",
+    done: "Done",
+    EVENT_FRACTURE: "Fracture",
+  EVENT_GUILD_DUNGEON_1: "Guild Dungeon (1 team)",
+  EVENT_FORTRESS: "Ancient Fortress",
+  EVENT_BATTLE: "Fortress Battle",
+  EVENT_GUILD_DUNGEON_2: "Guild Dungeon (2 team)"
+  }
+};
+let currentLang = localStorage.getItem("lang") || "ru";
+
+
+function t(key) {
+  return LANG[currentLang]?.[key] ?? key;
+}
+
+function setLang(lang) {
+  currentLang = lang;
+  localStorage.setItem("lang", lang);
+
+  buildTable1();
+  buildTable2Header();
+  renderDeathTable();
+  renderTable5();
+  updateTable6();
+
+  if (typeof updateTable3 === "function") {
+    updateTable3(true);
+  }
+
+  renderRatingNextStart();
+
+  applyTranslations();
+
+  document.querySelectorAll(".rating-sound-btn").forEach(btn => {
+    btn.textContent = ratingSoundEnabled
+      ? "🔊 " + t("BTN_SOUND_ON")
+      : "🔇 " + t("BTN_SOUND_OFF");
+  });
+
+  // 4. прочее
+  updateClock();
+  highlightTodayHeader();
+}
+
+const userPlanGlowLock = {};
+const USER_PLAN_ROW_GLOW  = 60 * 1000; 
+const USER_PLAN_BODY_GLOW = 60 * 1000;
+const UserPlanTimer = (() => {
+
+  const STORAGE_KEY = 'user_plan_timer_v1';
+  let plans = {};
+
+  function load() {
+    try {
+      plans = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+    } catch {
+      plans = {};
+    }
+  }
+
+  function save() {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(plans));
+  }
+
+  function isValidTime(text) {
+    return /^([01]\d|2[0-3]):([0-5]\d)$/.test(text);
+  }
+
+  function getNextTrigger(timeText) {
+    const [h, m] = timeText.split(':').map(Number);
+    const now = new Date();
+    const target = new Date();
+
+    target.setHours(h, m, 0, 0);
+
+    if (target <= now) {
+      target.setDate(target.getDate() + 1);
+    }
+    return target.getTime();
+  }
+
+  function setPlan(key, timeText) {
+    if (!isValidTime(timeText)) return false;
+
+    plans[key] = {
+      timeText,
+      nextTrigger: getNextTrigger(timeText),
+      firedToday: false
+    };
+    save();
+    return true;
+  }
+
+  function removePlan(key) {
+    delete plans[key];
+    save();
+  }
+
+  function getPlan(key) {
+    return plans[key] || null;
+  }
+
+  function checkAlerts(onFire) {
+    const now = Date.now();
+
+    Object.entries(plans).forEach(([key, plan]) => {
+      if (now >= plan.nextTrigger && !plan.firedToday) {
+        plan.firedToday = true;
+        onFire(key, plan);
+
+        const [h, m] = plan.timeText.split(':').map(Number);
+        const next = new Date();
+        next.setDate(next.getDate() + 1);
+        next.setHours(h, m, 0, 0);
+        plan.nextTrigger = next.getTime();
+
+        save();
+      }
+    });
+  }
+
+  load();
+
+  return {
+    setPlan,
+    removePlan,
+    getPlan,
+    checkAlerts,
+    isValidTime
+  };
+})();
+function findRowByPlanKey(key) {
+  const m = key.match(/^table(\d+)_(.+)$/);
+  if (!m) return null;
+
+  const table = m[1];
+  const id = m[2];
+  let row = null;
+
+  if (table === "6") {
+    row = document.querySelector(`#event-table-6 tr[data-id="${id}"]`);
+  }
+
+  if (table === "5") {
+    row = document.querySelector(`#deathTimer5 tr[data-id="${id}"]`);
+  }
+
+  if (table === "3") {
+    row = document.querySelector(`#deathTimer3 tr[data-id="${id}"]`);
+  }
+
+  if (table === "2") {
+    row = document.querySelector(`#deathTimer tr[data-id="${id}"]`);
+  }
+
+  if (!row) return null;
+  return { row, table };
+}
+function flashTableRow(row, tableId) {
+
+  userPlanGlowLock[tableId] = true;
+
+  row.classList.add("user-plan-flash");
+  setTimeout(() => {
+    row.classList.remove("user-plan-flash");
+  }, USER_PLAN_ROW_GLOW);
+  const bodyClass = `body-glow-${tableId}`;
+  document.body.classList.add(bodyClass);
+
+  setTimeout(() => {
+    document.body.classList.remove(bodyClass);
+    delete userPlanGlowLock[tableId];
+  }, USER_PLAN_BODY_GLOW);
+}
+
+
+function getRank(points) {
+  if (points > 125) return 5;
+  if (points > 100) return 4;
+  if (points > 75)  return 3;
+  if (points > 50)  return 2;
+  return 1;
+}
+document.addEventListener("DOMContentLoaded", function(){
+
+  updateRankDisplay(70);
+});
+const rankImages = {
+  1: "img/bb/image1.png",
+  2: "img/bb/image2.png",
+  3: "img/bb/image3.png",
+  4: "img/bb/image4.png",
+  5: "img/bb/image5.png"
+};
+
+function updateRankDisplay(points) {
+  const logo = document.querySelector(".rank-logo");
+  if (!logo) return;
+
+  const rank = getRank(points);
+  logo.style.backgroundImage = `url(${rankImages[rank]})`;
+}
+
+const emblemLibrary = {
+  loc1: "maps/loc1.png",
+  loc2: "maps/loc2.png",
+  loc3: "maps/loc3.png",
+  loc4: "maps/loc4.png",
+  loc5: "maps/loc1.png",
+  loc6: "maps/loc1.png",
+  loc7: "maps/loc1.png",
+  loc8: "maps/loc1.png",
+  loc9: "maps/loc1.png",
+  loc10: "maps/loc1.png",
+  loc11: "maps/loc1.png",
+  loc12: "maps/loc1.png",
+  loc13: "maps/loc1.png",
+  loc14: "maps/loc1.png",
+  loc15: "maps/loc1.png",
+  loc16: "maps/loc1.png",
+  loc17: "maps/loc1.png"
+};
+
+const locationLibrary = {
+  loc1: { name: 'Велуции', img: 'maps/map1.jpg' },
+  loc2: { name: 'Подземелья', img: 'maps/map2.jpg' },
+  loc3: { name: 'Локация 3', img: 'maps/map3.jpg' },
+  loc4: { name: 'Локация 4', img: 'maps/map4.jpg' },
+  loc5: { name: 'Локация 5', img: 'maps/map5.jpg' },
+  loc6: { name: 'Локация 6', img: 'maps/map6.jpg' },
+  loc7: { name: 'Локация 7', img: 'maps/map7.jpg' },
+  loc8: { name: 'Локация 8', img: 'maps/map8.jpg' },
+  loc9: { name: 'Локация 9', img: 'maps/map9.jpg' },
+  loc10: { name: 'Локация 10', img: 'maps/map10.jpg' },
+  loc11: { name: 'Локация 11', img: 'maps/map11.jpg' },
+  loc12: { name: 'Локация 12', img: 'maps/map12.jpg' },
+  loc13: { name: 'Локация 13', img: 'maps/map13.jpg' },
+  loc14: { name: 'Локация 14', img: 'maps/map14.jpg' },
+  loc15: { name: 'Локация 15', img: 'maps/map15.jpg' },
+  loc16: { name: 'Локация 16', img: 'maps/map16.jpg' },
+  loc17: { name: 'Локация 17', img: 'maps/map17.jpg' }
+};
+
+const ratingImg = document.getElementById("ratingMapImage");
+let currentRatingLoc = null;
+let ratingMarkersState = JSON.parse(localStorage.getItem("ratingMarkersState")) || {};
+let ratingRowState = JSON.parse(localStorage.getItem("ratingRowState")) || {};
+
+
+function saveRatingMarkers() {
+  localStorage.setItem("ratingMarkersState", JSON.stringify(ratingMarkersState));
+}
+
+function openRatingMap(locId) {
+  currentRatingLoc = locId;
+   const data = locationLibrary[locId];
+  if (!data) return;
+
+  const overlay = document.getElementById("ratingMapOverlay");
+  const img = document.getElementById("ratingMapImage");
+
+  img.src = data.img;
+  overlay.style.display = "flex";
+
+  loadRatingMarkers(locId);
+}
+function loadRatingMarkers(locId) {
+
+  const ratingLayer = document.getElementById("ratingMarkerLayer");
+        ratingLayer.innerHTML = "";
+  if (!ratingMarkersState[locId]) return;
+  ratingMarkersState[locId].forEach(data => {
+    if (Date.now() >= data.expire) return;
+    createSavedMarker(data);
+  });
+}
+function createSavedMarker(data) {
+  const ratingLayer = document.getElementById("ratingMarkerLayer");
+
+  const marker = document.createElement("div");
+  if (data.type === "blob") {
+    marker.className = "rating-blob";
+    marker.style.position = "absolute";
+    marker.style.width = "120px";
+    marker.style.height = "120px";
+    marker.style.left = data.x + "%";
+    marker.style.top = data.y + "%";
+    marker.style.borderRadius = "50%";
+    marker.style.background = "rgba(173,216,230,0.3)";
+    marker.style.border = "4px solid rgba(173,216,230,0.7)";
+    marker.style.display = "flex";
+    marker.style.flexDirection = "column";
+    marker.style.alignItems = "center";
+    marker.style.justifyContent = "center";
+
+    const time = document.createElement("div");
+    time.className = "rating-blob-time";
+    marker.prepend(time);
+
+    ratingLayer.appendChild(marker);
+
+    startRatingTimerFromExpire(time, marker, data.expire);
+    return;
+  }
+
+
+  marker.className = "rating-marker";
+  marker.style.left = data.x + "%";
+  marker.style.top = data.y + "%";
+
+  const time = document.createElement("div");
+  time.className = "rating-marker-time";
+
+  const emoji = document.createElement("div");
+  if(data.type === "green") emoji.textContent = "🟢";
+  if(data.type === "red") emoji.textContent = "🔴";
+  if(data.type === "purple") emoji.textContent = "🟣";
+
+  marker.appendChild(time);
+  marker.appendChild(emoji);
+
+  ratingLayer.appendChild(marker);
+
+  startRatingTimerFromExpire(time, marker, data.expire);
+}
+
+function startRatingTimerFromExpire(timeElement, marker, expireTime){
+
+  function update() {
+
+    const remaining = Math.floor((expireTime - Date.now())/1000);
+
+    if (remaining <= 0) {
+      marker.remove();
+      return false;
+    }
+
+    const m = Math.floor(remaining/60);
+    const s = remaining%60;
+
+    timeElement.textContent =
+      m + ":" + (s<10?"0"+s:s);
+
+    return true;
+  }
+
+  if (!update()) return;
+
+  const interval = setInterval(()=>{
+    if (!update()) {
+      clearInterval(interval);
+    }
+  },1000);
+}
+
+function openLocationSelector(rowElement, button) {
+  const existing = document.querySelector('.location-selector');
+  if (existing) existing.remove();
+
+  const selector = document.createElement('div');
+       selector.className = 'location-selector';
+       selector.style.position = 'absolute';
+       selector.style.background = '#222';
+       selector.style.color = '#fff';
+       selector.style.border = '1px solid #555';
+       selector.style.padding = '5px';
+       selector.style.zIndex = 1000;
+       selector.style.maxHeight = '300px';
+       selector.style.overflowY = 'auto';
+       selector.style.borderRadius = '5px';
+       selector.style.boxShadow = '0 0 10px #000';
+
+  Object.keys(locationLibrary).forEach(id => {
+  const loc = locationLibrary[id];
+       const option = document.createElement('div');
+             option.textContent = loc.name;
+             option.style.padding = '3px 5px';
+             option.style.cursor = 'pointer';
+             option.onmouseover = () => option.style.background = '#555';
+             option.onmouseout = () => option.style.background = 'transparent';
+
+             option.onclick = () => {
+       const cell = rowElement.querySelector('.location-cell');
+let img = cell.querySelector('img');
+
+if (!img) {
+  img = document.createElement('img');
+  cell.appendChild(img);
+}
+
+img.src = emblemLibrary[id];
+cell.dataset.loc = id;
+
+const rowIndex = Array.from(rowElement.parentNode.children).indexOf(rowElement);
+
+ratingRowState[rowIndex] = id;
+
+localStorage.setItem(
+  "ratingRowState",
+  JSON.stringify(ratingRowState)
+);
+
+  selector.remove();
+};
+
+    selector.appendChild(option);
+  });
+
+  document.body.appendChild(selector);
+
+  const rect = button.getBoundingClientRect();
+  selector.style.top = `${rect.bottom + window.scrollY}px`;
+  selector.style.left = `${rect.left + window.scrollX}px`;
+}
+document.addEventListener("DOMContentLoaded", () => {
+  const tableRows = document.querySelectorAll('.rankTable tbody tr');
+
+  tableRows.forEach((row, index) => {
+    const locId = ratingRowState[index];
+    if (!locId) return;
+
+    const cell = row.querySelector('.location-cell');
+    let img = cell.querySelector('img');
+    if (!img) {
+      img = document.createElement('img');
+      cell.appendChild(img);
+    }
+    img.src = emblemLibrary[locId];
+    cell.dataset.loc = locId;
+  });
+});
+
+document.querySelectorAll('.rankTable .control-cell button:first-child').forEach(button => {
+  button.addEventListener('click', function() {
+    const row = button.closest('tr');
+    openLocationSelector(row, button);
+  });
+});
+
+document.addEventListener('click', function(e){
+
+  const btn = e.target.closest('[data-action="clear-row"]');
+  if (!btn) return;
+
+  const row = btn.closest('tr');
+  if (!row) return;
+
+  const img = row.querySelector('.location-cell img');
+  const cell = row.querySelector('.location-cell');
+
+  if (img) img.src = "";
+  if (cell) cell.dataset.loc = "";
+
+  const rowIndex = Array.from(row.parentNode.children).indexOf(row);
+
+  delete ratingRowState[rowIndex];
+
+  localStorage.setItem(
+    "ratingRowState",
+    JSON.stringify(ratingRowState)
+  );
+
+});
+
+document.addEventListener('click', function(e) {
+  const img = e.target.closest('.location-cell img');
+  if (!img) return;
+
+  const cell = img.closest('.location-cell');
+  const locId = cell.dataset.loc;
+
+  openRatingMap(locId);
+});
+const ratingOverlay = document.getElementById("ratingMapOverlay");
+ratingOverlay.addEventListener("click", function(e) {
+  if (e.target === ratingOverlay) {
+    ratingOverlay.style.display = "none";
+  }
+});
+
+let currentTool = null;
+
+document
+  .querySelectorAll("#ratingEmojiControls button")
+  .forEach(btn => {
+
+   if (btn.id === "clearRatingMarkers") {
+  btn.addEventListener("click", e => {
+    e.stopPropagation();
+
+    if (!confirm("Удалить все маркеры ?")) return;
+
+    const ratingLayer = document.getElementById("ratingMarkerLayer");
+    ratingLayer.innerHTML = "";
+
+    if (currentRatingLoc) {
+  delete ratingMarkersState[currentRatingLoc];
+  saveRatingMarkers();
+}
+  });
+  return;
+}
+    btn.addEventListener("click", e => {
+      e.stopPropagation();
+
+      document
+        .querySelectorAll("#ratingEmojiControls button")
+        .forEach(b => b.classList.remove("active"));
+
+      btn.classList.add("active");
+      currentTool = btn.dataset.type;
+    });
+
+});
+
+ratingImg.addEventListener("click", function(e) {
+
+
+if (!currentTool) return;
+if (!currentRatingLoc) return;
+const ratingLayer =
+document.getElementById("ratingMarkerLayer");
+
+const rect = ratingImg.getBoundingClientRect();
+ const x = ((e.clientX - rect.left) / rect.width) * 100;
+ const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+if (currentTool === "blob") {
+  const blob = document.createElement("div");
+  blob.className = "rating-blob";
+
+  const blobSize = 120;
+  blob.style.position = "absolute";
+  blob.style.width = blobSize + "px";
+  blob.style.height = blobSize + "px";
+
+  blob.style.left = `calc(${x}% - ${blobSize/2}px)`;
+  blob.style.top  = `calc(${y}% - ${blobSize/2}px)`;
+
+  blob.style.borderRadius = "50%";
+  blob.style.background = "rgba(173,216,230,0.3)";
+  blob.style.border = "4px solid rgba(173,216,230,0.7)";
+  blob.style.display = "flex";
+  blob.style.flexDirection = "column";
+  blob.style.alignItems = "center";
+  blob.style.justifyContent = "center";
+
+  const time = document.createElement("div");
+  time.className = "rating-blob-time";
+  const expireTime = Date.now() + 1800 * 1000;
+  time.textContent = formatTime(expireTime - Date.now());
+  blob.prepend(time);
+
+  ratingLayer.appendChild(blob);
+
+
+  if (!ratingMarkersState[currentRatingLoc]) {
+    ratingMarkersState[currentRatingLoc] = [];
+  }
+
+  ratingMarkersState[currentRatingLoc].push({
+    type: "blob",
+    x: x,
+    y: y,
+    expire: expireTime
+  });
+
+  saveRatingMarkers();
+
+  startRatingTimerFromExpire(time, blob, expireTime);
+
+  return;
+}
+
+const marker = document.createElement("div");
+marker.className = "rating-marker";
+marker.style.left = x + "%";
+marker.style.top = y + "%";
+
+const time = document.createElement("div");
+time.className = "rating-marker-time";
+
+const emoji = document.createElement("div");
+
+if(currentTool === "green") emoji.textContent = "🟢";
+if(currentTool === "red") emoji.textContent = "🔴";
+if(currentTool === "purple") emoji.textContent = "🟣";
+
+marker.appendChild(time);
+marker.appendChild(emoji);
+
+if (!ratingMarkersState[currentRatingLoc]) {
+  ratingMarkersState[currentRatingLoc] = [];
+}
+
+const expireTime = Date.now() + 1800 * 1000;
+
+ratingMarkersState[currentRatingLoc].push({
+  type: currentTool,
+  x: x,
+  y: y,
+  expire: expireTime
+});
+
+saveRatingMarkers();
+ratingLayer.appendChild(marker);
+
+startRatingTimerFromExpire(time, marker, expireTime);
+if (soundEnabled && ratingSoundEnabled) {
+  playMarkerSound();
+}
+});
+
+
+function resetSite() {
+  resetTable1Statuses();
+  table1Kills = {};
+  localStorage.removeItem("table1Kills");
+
+  TIMEZONE_OFFSET_HOURS = 0;
+  localStorage.setItem("timezoneOffset", 0);
+
+  updateTZLabel();
+  updateTable1VisualTime();
+  highlightTodayHeader();
+  checkMissed();
+
+  renderDeathTable();
+
+if (typeof window.updateTable3 === "function") {
+  window.updateTable3(true);
+ }
+}
+document
+  .getElementById("resetTable1Btn")
+  .addEventListener("click", resetSite);
+
+let globalVolume = 0.7;
+console.log("Death table script loaded");
+
+const deathTbody = document.querySelector("#deathTimer tbody");
+
+let TIMEZONE_OFFSET_HOURS =
+      parseInt(localStorage.getItem("timezoneOffset")) || 0;
+function getServerNow() {
+  return new Date(
+    Date.now() + TIMEZONE_OFFSET_HOURS * 60 * 60 * 1000
+  );
+}
+const deathBosses = [
+  { id: "MORGON", respawnHours: 72, nextSpawn: null, players: "ABC",plan: "_", missedAt:null },
+  { id: "NIDROK", respawnHours: 72, nextSpawn: null, players: "ABC",plan: "_", missedAt:null },
+  { id: "HYSTERIA", respawnHours: 72, nextSpawn: null, players: "ABC",plan: "_", missedAt:null },
+  { id: "SION", respawnHours: 72, nextSpawn: null, players: "ABC",plan: "_", missedAt:null },
+  { id: "RIGRETO", respawnHours: 72, nextSpawn: null, players: "ABC",plan: "_", missedAt:null },
+  { id: "LUNOS", respawnHours: 72, nextSpawn: null, players: "ABC",plan: "_", missedAt:null },
+  { id: "FLAUD", respawnHours: 72, nextSpawn: null, players: "ABC",plan: "_", missedAt:null },
+  { id: "GARDON", respawnHours: 72, nextSpawn: null, players: "ABC",plan: "_", missedAt:null },
+  { id: "BELLA", respawnHours: 72, nextSpawn: null, players: "ABC",plan: "_", missedAt:null },
+  { id: "CRATERIUS", respawnHours: 72, nextSpawn: null, players: "ABC",plan: "_", missedAt:null }
+];
+window.deathBosses = deathBosses;
+
+const STORAGE_DEATH_TABLE = "deathTableState";
+function saveDeathTable(){
+
+  const data = deathBosses.map(b => ({
+  id: b.id,
+  nextSpawn: b.nextSpawn ? b.nextSpawn.getTime() : null,
+  missedAt: b.missedAt ? b.missedAt.getTime() : null,
+  players: b.players || "",
+  plan: b.plan || ""
+}));
+
+  localStorage.setItem(
+    STORAGE_DEATH_TABLE,
+    JSON.stringify(data)
+  );
+}
+
+function loadDeathTable(){
+
+  const saved = localStorage.getItem(STORAGE_DEATH_TABLE);
+  if (!saved) return;
+
+  try{
+
+    const data = JSON.parse(saved);
+
+    data.forEach(item => {
+
+  const boss = deathBosses.find(b => b.id === item.id);
+  if (!boss) return;
+
+  boss.players = item.players || "";
+  boss.plan = item.plan || "";
+
+  if (item.nextSpawn){
+    boss.nextSpawn = new Date(item.nextSpawn);
+  }
+  if (item.missedAt){
+  boss.missedAt = new Date(item.missedAt);
+  }
+});
+
+  } catch(e){
+    console.log("Death table load error", e);
+  }
+
+}
+function formatRemainingTime(ms) {
+
+  if (ms <= 0) {
+    return currentLang === "en" ? "0m" : "0м";
+  }
+
+  const totalSeconds = Math.floor(ms / 1000);
+  const hours = Math.floor(totalSeconds / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
+
+  const hLabel = currentLang === "en" ? "h" : "ч";
+  const mLabel = currentLang === "en" ? "m" : "м";
+  const sLabel = currentLang === "en" ? "s" : "с";
+
+  let result = "";
+
+  if (hours > 0) result += `${hours}${hLabel} `;
+  if (minutes > 0) result += `${minutes}${mLabel} `;
+  result += `${seconds}${sLabel}`;
+
+  return result.trim();
+}
+function formatSpawnTime(date) {
+
+  let hours = date.getHours();
+  const minutes = date.getMinutes();
+  const seconds = date.getSeconds();
+
+  if (currentLang === "en") {
+
+    const suffix = hours >= 12 ? " PM" : " AM";
+    hours = hours % 12 || 12;
+
+    return (
+      String(hours).padStart(2, "0") + ":" +
+      String(minutes).padStart(2, "0") + ":" +
+      String(seconds).padStart(2, "0") +
+      suffix
+    );
+  }
+
+ 
+  return (
+    String(hours).padStart(2, "0") + ":" +
+    String(minutes).padStart(2, "0") + ":" +
+    String(seconds).padStart(2, "0")
+  );
+}
+function renderDeathTable() {
+let deathGlow = false;
+  const now = getServerNow();
+const sortedBosses = [...deathBosses].sort((a,b)=>{
+
+
+  function priority(boss){
+
+    if (!boss.nextSpawn) return 99;
+
+    const diff = boss.nextSpawn - now;
+    const passed = now - boss.nextSpawn;
+
+    if (boss.missedAt && now - boss.missedAt <= 24*60*60*1000) return 1;
+    if (diff <= 0) return 2;
+    if (diff <= 30*60*1000) return 3;
+
+    return 4;
+
+  }
+
+  const pa = priority(a);
+  const pb = priority(b);
+
+  if (pa !== pb) return pa - pb;
+
+  if (!a.nextSpawn && !b.nextSpawn) return 0;
+  if (!a.nextSpawn) return 1;
+  if (!b.nextSpawn) return -1;
+
+  return a.nextSpawn - b.nextSpawn;
+
+});
+
+deathTbody.innerHTML = "";
+
+sortedBosses.forEach((boss) => {
+
+let rowClass = "";
+let statusIcon = "☠";
+let statusClass = "";
+
+if (boss.nextSpawn) {
+
+const diff = boss.nextSpawn - now;
+const passed = now - boss.nextSpawn;
+
+if (diff > 0) {
+statusIcon = "🟢";
+statusClass = "alive";
+}
+else if (passed < 30 * 60 * 1000) {
+statusIcon = "🔴";
+statusClass = "active";
+}
+else {
+statusIcon = "⚫";
+statusClass = "missed";
+}
+
+}
+let spawnText = "—";
+
+if (boss.nextSpawn) {
+  const diff = boss.nextSpawn - now;
+
+if (diff <= 5 * 60 * 1000) {
+  deathGlow = true;
+  rowClass = "death-row-alert";
+}
+
+if (boss.nextSpawn <= now) {
+  rowClass = "death-row-alert";
+}
+  if (diff > 0) {
+    spawnText =
+  '<div class="spawn-time">' +
+   formatSpawnTime(boss.nextSpawn) +
+   '</div>' +
+   '<div class="spawn-remaining">' +
+   formatRemainingTime(diff) +
+   '</div>';
+
+  } else {
+    spawnText =
+  formatSpawnTime(boss.nextSpawn) +
+  (currentLang === "en" ? " (Ready)" : " (готов)");
+  }
+}
+deathTbody.innerHTML +=  `
+
+      <tr id="death_row_${boss.id}" class="${rowClass}" data-id="${boss.id}">
+        <td class="boss-name">
+  <span class="boss-name-text">${t(boss.id)}</span>
+</td>
+
+        <td class="boss-cell ${statusClass}" onclick="handleDeathClick('${boss.id}')">
+          <span>${statusIcon}</span>
+        </td>
+
+        <td>${spawnText}</td>
+        <td contenteditable="true"
+           data-action="group2"
+           data-id="${boss.id}">
+           ${boss.players || ""}
+          </td>
+        <td class="plann-cell"
+          contenteditable="true"
+          data-table="2"
+          data-event="${boss.id}">${boss.plan || ""}
+         </td>
+         <td>
+   <button
+  onmousedown="startHold('${boss.id}', 1)"
+  onmouseup="stopHold()"
+  onmouseleave="stopHold()"
+  onclick="adjustDeath('${boss.id}', 1)"
+>+</button>
+
+<button
+  onmousedown="startHold('${boss.id}', -1)"
+  onmouseup="stopHold()"
+  onmouseleave="stopHold()"
+  onclick="adjustDeath('${boss.id}', -1)"
+>−</button>
+          </td>
+      </tr>
+    `;
+  });
+  document.body.classList.toggle("death-glow", deathGlow);
+ }
+function updateDeathTimersOnly() {
+
+  const now = getServerNow();
+
+  document.querySelectorAll("#deathTimer tbody tr")
+    .forEach((row) => {
+
+      const id = row.dataset.id;
+      const boss = deathBosses.find(b => b.id === id);
+
+      if (!boss || !boss.nextSpawn) return;
+
+      const diff = boss.nextSpawn - now;
+      const cell = row.cells[2];
+
+      if (diff > 0) {
+        cell.innerHTML =
+          '<div class="spawn-time">' +
+          formatSpawnTime(boss.nextSpawn) +
+          '</div>' +
+          '<div class="spawn-remaining">' +
+          formatRemainingTime(diff) +
+          '</div>';
+      } else {
+        cell.innerHTML =
+          formatSpawnTime(boss.nextSpawn) +
+          (currentLang === "en" ? " (Ready)" : " (готов)");
+      }
+const passed = now - boss.nextSpawn;
+
+const statusCell = row.cells[1];
+
+if (boss.missedAt && (now - boss.missedAt <= 24 * 60 * 60 * 1000)) {
+  statusCell.innerHTML = "⚫";
+  statusCell.className = "boss-cell missed";
+}
+else if (diff > 0) {
+  statusCell.innerHTML = "🟢";
+  statusCell.className = "boss-cell alive";
+}
+else if (passed < 30 * 60 * 1000) {
+  statusCell.innerHTML = "🔴";
+  statusCell.className = "boss-cell active";
+}
+else {
+  statusCell.innerHTML = "⚫";
+  statusCell.className = "boss-cell missed";
+}
+
+  });
+}
+document.addEventListener("input", function(e){
+
+  if (e.target.dataset.action === "group2") {
+
+  const id = e.target.dataset.id;
+  const boss = deathBosses.find(b => b.id === id);
+
+  if (boss) {
+    boss.players = e.target.innerText;
+  }
+}
+saveDeathTable();
+
+   if (e.target.classList.contains("plann-cell")) {
+      const row = e.target.closest("tr");
+      const id = row.dataset.id;
+
+      const boss = deathBosses.find(b => b.id === id);
+
+   if (boss) {
+       boss.plan = e.target.innerText;
+   }
+  }
+ saveDeathTable();
+});
+function handleDeathClick(bossId){
+
+  const boss = deathBosses.find(b => b.id === bossId);
+  if (!boss) return;
+
+  const now = getServerNow();
+
+  if (boss.missedAt && (now - boss.missedAt <= 24 * 60 * 60 * 1000)) {
+
+    delete boss.missedAt;
+
+    boss.nextSpawn = new Date(
+      now.getTime() + boss.respawnHours * 60 * 60 * 1000
+    );
+
+    saveDeathTable();
+    renderDeathTable();
+    return;
+  }
+  killDeathBoss(bossId);
+}
+function killDeathBoss(bossId){
+
+  const boss = deathBosses.find(b => b.id === bossId);
+  if (!boss) return;
+
+  const now = getServerNow();
+  delete boss.missedAt;
+
+  boss.nextSpawn = new Date(now.getTime() + boss.respawnHours * 60 * 60 * 1000);
+   delete deathAlerted[bossId + "_5"];
+   delete deathAlerted[bossId + "_2"];
+   delete deathAlerted[bossId + "_1"];
+
+  saveDeathTable();
+  renderDeathTable();
+}
+
+function adjustDeath(bossId, minutes){
+
+  const boss = deathBosses.find(b => b.id === bossId);
+  if (!boss || !boss.nextSpawn) return;
+
+  boss.nextSpawn = new Date(
+    boss.nextSpawn.getTime() + minutes * 60000
+  );
+
+  saveDeathTable();
+  renderDeathTable();
+}
+let holdInterval = null;
+
+function startHold(bossId, dir){
+
+  holdInterval = setInterval(() => {
+    adjustDeath(bossId, dir * 60);
+  }, 200);
+}
+
+function stopHold() {
+  clearInterval(holdInterval);
+  holdInterval = null;
+}
+
+    renderDeathTable();
+
+    function updateClock() {
+
+  const now = new Date();
+
+  const daysShort = LANG[currentLang].daysClock;
+  const day = daysShort[now.getDay()];
+
+  let hours = now.getHours();
+  let suffix = "";
+
+  if (currentLang === "en") {
+    suffix = hours >= 12 ? " PM" : " AM";
+    hours = hours % 12 || 12;
+  }
+
+  const h = String(hours).padStart(2, "0");
+  const m = String(now.getMinutes()).padStart(2, "0");
+  const s = String(now.getSeconds()).padStart(2, "0");
+
+  document.getElementById("clock").textContent =
+    `${h}:${m}:${s}${suffix} ${day}`;
+}
+
+function updateTable1VisualTime(){
+
+  document.querySelectorAll("#timer td.time").forEach(td => {
+
+    const base = td.dataset.baseTime;
+    if (!base) return;
+
+    let [h, m] = base.split(":").map(Number);
+
+    h = (h + TIMEZONE_OFFSET_HOURS + 24) % 24;
+
+    let suffix = "";
+
+    if (currentLang === "en") {
+      suffix = h >= 12 ? " PM" : " AM";
+      h = h % 12 || 12;
+    }
+
+    td.textContent =
+      String(h).padStart(2, "0") + ":" +
+      String(m).padStart(2, "0") +
+      suffix;
+  });
+}
+function checkDeathVisualAlerts(){
+
+  const now = getServerNow();
+  let glow = false;
+
+  deathBosses.forEach(boss => {
+
+    if(!boss.nextSpawn) return;
+
+    const diff = boss.nextSpawn - now;
+
+    const row = document.getElementById("death_row_" + boss.id);
+    if(!row) return;
+
+    if(diff <= 5 * 60 * 1000){
+
+      row.classList.add("death-row-alert");
+      glow = true;
+
+    }else{
+
+      row.classList.remove("death-row-alert");
+
+    }
+
+  });
+
+  document.body.classList.toggle("death-glow", glow);
+}
+
+function updateTZLabel() {
+      const displayValue = + TIMEZONE_OFFSET_HOURS; 
+      const sign = displayValue >= 0 ? "+" : "";
+    document.getElementById("tz-value").textContent =
+      `UTC ${sign}${displayValue}`;
+}
+
+function changeTZ(delta) {
+  TIMEZONE_OFFSET_HOURS += delta;
+
+  localStorage.setItem("timezoneOffset", TIMEZONE_OFFSET_HOURS);
+
+  updateTZLabel();
+  updateTable1VisualTime();
+  highlightTodayHeader();
+  checkMissed();
+
+  renderDeathTable();
+  if (typeof window.renderTable3 === "function") {
+    window.renderTable3(true);
+  }
+}
+      updateTZLabel();
+      updateTable1VisualTime();
+      highlightTodayHeader();
+
+setInterval(updateClock, 1000);
+updateClock();
+const table = document.getElementById("timer");
+const deathTable = document.getElementById("deathTimer");
+const sound = document.getElementById("sound");
+
+let soundEnabled = false;
+let alerted = {};
+let deathAlerted = {};
+
+let ratingSoundEnabled = localStorage.getItem("ratingSoundEnabled") !== "false";
+document.querySelectorAll('.rankTable .rating-sound-btn')
+.forEach(btn => {
+
+  btn.textContent = ratingSoundEnabled
+  ? "🔊 " + t("BTN_SOUND_ON")
+  : "🔇 " + t("BTN_SOUND_OFF");
+
+  btn.addEventListener("click", function(){
+
+    ratingSoundEnabled = !ratingSoundEnabled;
+    localStorage.setItem("ratingSoundEnabled", ratingSoundEnabled);
+
+    btn.textContent = ratingSoundEnabled
+  ? "🔊 " + t("BTN_SOUND_ON")
+  : "🔇 " + t("BTN_SOUND_OFF");
+  });
+
+});
+
+let table1Kills = JSON.parse(localStorage.getItem("table1Kills") || "{}");
+
+function saveTable1Kills() {
+  localStorage.setItem("table1Kills", JSON.stringify(table1Kills));
+}
+
+function killCell(cell) {
+
+  cell.innerText = "☠";
+
+const row = cell.parentElement;
+const baseTime = row.querySelector(".time").dataset.baseTime;
+const colIndex = cell.cellIndex;
+
+const key = colIndex + "_" + baseTime;
+
+table1Kills[key] = "☠";
+saveTable1Kills();
+
+  cell.classList.remove("green");
+  cell.classList.add("killed");	
+}
+
+const startHour = 0;
+const startMinute = 30;
+const intervalHours = 4;
+
+function checkMissed() {
+
+  const now = getServerNow();
+  const currentDayIndex = (now.getDay() + 6) % 7;
+  document.querySelectorAll("#timer .boss-cell").forEach(cell => {
+
+    if (cell.textContent === "☠") return;
+
+    const row = cell.parentElement;
+    const timeCell = row.querySelector(".time");
+    if (!timeCell || !timeCell.dataset.baseTime) return;
+
+    const [h, m] = timeCell.dataset.baseTime.split(":").map(Number);
+
+    const colIndex = cell.cellIndex - 1;
+
+    const spawn = new Date(now);
+
+    spawn.setDate(now.getDate() - currentDayIndex + colIndex);
+
+    spawn.setHours(h, m, 0, 0);
+
+    if (now > spawn) {
+      cell.textContent = "⚫";
+      cell.classList.add("missed");
+    }
+
+  });
+}
+
+window.getTable1EventsForRating = function () {
+  const events = [];
+  const now = getServerNow();
+  const currentDayIndex = (now.getDay() + 6) % 7;
+  document.querySelectorAll("#timer tr").forEach((row, rowIndex) => {
+    if (rowIndex === 0) return; 
+    const timeCell = row.querySelector(".time");
+    if (!timeCell || !timeCell.dataset.baseTime) return;
+
+    const [h, m] = timeCell.dataset.baseTime.split(":").map(Number);
+
+    for (let day = 1; day <= 7; day++) {
+      const cell = row.cells[day];
+      if (!cell) continue;
+
+    
+      if (cell.textContent === "☠" || cell.textContent === "⚫") continue;
+
+      const spawn = new Date(now);
+      spawn.setDate(now.getDate() - currentDayIndex + (day - 1));
+      spawn.setHours(h, m, 0, 0);
+
+      if (spawn > now) {
+        events.push({
+          source: "table1",
+          name: `${t("boss")} ${timeCell.dataset.baseTime}`,
+          next: spawn
+        });
+      }
+    }
+  });
+
+  return events;
+};
+
+function toggleSound() {
+  soundEnabled = !soundEnabled;
+
+  const btn = document.getElementById("soundToggle");
+    btn.textContent = soundEnabled ? "🔊 Звук" : "🔇 Звук";
+
+  if (soundEnabled) {
+    sound.volume = globalVolume;
+    sound.currentTime = 0;
+    sound.play().then(() => sound.pause()).catch(() => {});
+  }
+}
+
+function setVolume(value) {
+  globalVolume = value / 100;
+
+  if (sound) {
+    sound.volume = globalVolume;
+  }
+}
+
+function buildTable1Header(){
+
+  const table = document.getElementById("timer");
+  const days = LANG[currentLang].daysShort;
+
+  let header = `<tr><th class='time'>${t("timeHeader")}</th>`;
+
+  days.forEach(d => header += `<th>${d}</th>`);
+
+  header += "</tr>";
+
+  const firstRow = table.querySelector("tr");
+
+  if (firstRow) {
+    firstRow.outerHTML = header;
+  } else {
+    table.innerHTML = header;
+  }
+}
+function buildTable2Header(){
+
+  const thead = document.querySelector("#deathTimer thead");
+
+  thead.innerHTML = `
+    <tr>
+      <th>${t("boss")}</th>
+      <th>${t("status")}</th>
+      <th>${t("nextStart")}</th>
+      <th>${t("players")}</th>
+      <th>${t("timer")}</th>
+      <th>${t("controls")}</th>
+    </tr>
+  `;
+}
+function buildTable1(){
+
+  const table = document.getElementById("timer");
+  table.innerHTML = "";
+
+  buildTable1Header();
+
+  let hour = startHour;
+
+  while (hour < 24) {
+
+    const displayHour = hour % 24;
+
+    let baseTime =
+      String(displayHour).padStart(2,"0") + ":" +
+      String(startMinute).padStart(2,"0");
+
+    let row = `<tr>
+      <td class="time" data-base-time="${baseTime}">${baseTime}</td>`;
+
+    for (let i = 0; i < 7; i++) {
+      row += "<td class='boss-cell green' onclick='killCell(this)'>🟢</td>";
+    }
+
+    row += "</tr>";
+
+    table.innerHTML += row;
+
+    hour += intervalHours;
+  }
+  updateTable1VisualTime();
+  highlightTodayHeader();
+  restoreTable1Kills();
+}
+
+
+
+
+function restoreTable1Kills(){
+
+  Object.keys(table1Kills).forEach(key => {
+
+    const [colIndex, timeText] = key.split("_");
+
+    document.querySelectorAll("#timer tr").forEach((row, i) => {
+      if (i === 0) return;
+
+      const timeCell = row.querySelector(".time");
+      if (!timeCell) return;
+
+      if (timeCell.dataset.baseTime === timeText) {
+
+        const cell = row.cells[colIndex];
+
+        if (cell) {
+          cell.textContent = "☠";
+          cell.classList.remove("green");
+          cell.classList.add("killed");
+        }
+      }
+    });
+  });
+}
+let currentWeekNumber = getWeekNumber(new Date());
+ let currentServerWeekDay = null;
+
+function getWeekNumber(date) {
+  const d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+  const dayNum = d.getUTCDay() || 7;
+  d.setUTCDate(d.getUTCDate() + 4 - dayNum);
+  const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+  return Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
+}
+
+function checkTimer() {
+ let spawnGlow = false;
+
+  const now = getServerNow();
+  const newWeekDay = (now.getDay() + 6) % 7;
+
+if (newWeekDay !== currentServerWeekDay) {
+  currentServerWeekDay = newWeekDay;
+
+  console.log("SERVER DAY CHANGED");
+
+  highlightTodayHeader();
+  checkMissed();
+
+}
+
+  const day = (now.getDay() + 6) % 7 + 1;
+  const rows = table.querySelectorAll("tr");
+
+  rows.forEach((row, i) => {
+    if (i === 0) return;
+
+    row.classList.remove("soon", "now");
+
+    const baseTime = row.cells[0].dataset.baseTime;
+    if (!baseTime) return;
+
+    const [h, m] = baseTime.split(":").map(Number);
+
+    const cell = row.cells[day];
+    if (cell.textContent === "☠") return;
+    if (!cell || cell.innerText.trim() === "") return;
+
+   
+    const spawn = getServerNow();
+    spawn.setHours(h, m, 0, 0);
+
+    const diff = (spawn - now) / 60000;
+    const key = day + "_" + h + ":" + m;
+
+    if (diff <= 0 && diff > -5) {
+      row.classList.add("now");
+      spawnGlow = true;
+
+      const statusCell = row.cells[day];
+      if (statusCell && statusCell.textContent !== "☠") {
+      statusCell.textContent = "🔴";
+      statusCell.classList.remove("green", "missed");
+    }
+   }
+const nowWeek = getWeekNumber(new Date());
+if (nowWeek !== currentWeekNumber) {
+  resetTable1Statuses();
+  currentWeekNumber = nowWeek;
+}
+
+    if (diff <= -5) {
+      const statusCell = row.cells[day];
+      if (statusCell && statusCell.textContent !== "☠") {
+        statusCell.textContent = "⚫";
+        statusCell.classList.remove("green");
+        statusCell.classList.add("missed");
+      }
+    }
+
+if (diff > 1 && diff <= 2) {
+  row.classList.add("soon");
+  spawnGlow = true;
+  const key2 = key + "_2";
+  if (soundEnabled && !alerted[key2]) {
+    sound.currentTime = 0;
+    sound.volume = globalVolume;
+    sound.play();
+    alerted[key2] = true;
+  }
+} 
+
+ if (diff > 0 && diff <= 1) {
+  row.classList.add("soon");
+  spawnGlow = true;
+
+  const key1 = key + "_1";
+  if (soundEnabled && !alerted[key1]) {
+    sound.currentTime = 0;
+    sound.volume = globalVolume;
+    sound.play();
+    alerted[key1] = true;
+      }
+     }
+  });
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.getElementById("soundToggle");
+  if (btn) {
+    btn.textContent = "🔇 Звук";
+  }
+});
+document.body.classList.toggle("spawn-glow", spawnGlow);
+}
+function checkDeathAutoSkip() {
+
+  const now = getServerNow();
+
+  deathBosses.forEach(boss => {
+
+    if (!boss.nextSpawn) return;
+
+    const passed = now - boss.nextSpawn;
+
+    if (passed >= 30 * 60 * 1000) {
+
+      boss.missedAt = new Date();
+      boss.nextSpawn = new Date(
+        boss.nextSpawn.getTime() +
+        boss.respawnHours * 60 * 60 * 1000 +
+        30 * 60 * 1000
+      );
+
+      saveDeathTable();
+      renderDeathTable();
+    }
+
+  });
+}
+function checkDeathAlerts() {
+
+  const now = getServerNow();
+
+  deathBosses.forEach((boss) => {
+
+    if (!boss.nextSpawn) return;
+
+    const diff = boss.nextSpawn - now;
+
+    if (diff > 0) {
+
+      if (diff <= 5 * 60000 && !deathAlerted[boss.id + "_5"]) {
+
+        if (soundEnabled) {
+          sound.currentTime = 0;
+          sound.volume = globalVolume;
+          sound.play();
+        }
+
+        deathAlerted[boss.id + "_5"] = true;
+      }
+
+      if (diff <= 2 * 60000 && !deathAlerted[boss.id + "_2"]) {
+
+        if (soundEnabled) {
+          sound.currentTime = 0;
+          sound.volume = globalVolume;
+          sound.play();
+        }
+
+        deathAlerted[boss.id + "_2"] = true;
+      }
+
+      if (diff <= 1 * 60000 && !deathAlerted[boss.id + "_1"]) {
+
+        if (soundEnabled) {
+          sound.currentTime = 0;
+          sound.volume = globalVolume;
+          sound.play();
+        }
+
+        deathAlerted[boss.id + "_1"] = true;
+      }
+
+    }
+
+  });
+
+}
+setInterval(() => {
+
+  updateDeathTimersOnly();
+  checkDeathAlerts();
+  checkDeathVisualAlerts();
+  checkDeathAutoSkip();
+
+}, 1000);
+setInterval(checkTimer, 1000);
+window.getTable2EventsForRating = function () {
+  if (!Array.isArray(window.deathBosses)) return [];
+
+  return deathBosses
+    .filter(b =>
+      b.enabled !== false &&
+      b.nextSpawn instanceof Date
+    )
+    .map(b => ({
+      source: "table2",
+      name: b.id,
+      next: b.nextSpawn
+    }));
+};
+console.log("TABLE3 SNAPSHOT", window.getTable2EventsForRating());
+
+function resetTable1Statuses() {
+
+  TIMEZONE_OFFSET_HOURS = 0;
+  localStorage.removeItem("timezoneOffset");
+  updateTZLabel();
+  updateTable1VisualTime();
+
+  const rows = document.querySelectorAll("#timer tr");
+
+  rows.forEach((row, i) => {
+    if (i === 0) return;
+
+    for (let d = 1; d <= 7; d++) {
+      const cell = row.cells[d];
+      if (!cell) continue;
+
+      cell.textContent = "🟢";
+      cell.classList.remove("missed", "killed", "now");
+    }
+  });
+
+  table1Kills = {};
+  localStorage.removeItem("table1Kills");
+}
+window.resetTable1Statuses = resetTable1Statuses;
+
+function highlightTodayHeader() {
+
+  const days = LANG[currentLang].daysClock;
+  const now = getServerNow();
+  const dayName = days[now.getDay()];
+
+  document.querySelectorAll("#timer th").forEach(th => {
+    th.classList.remove("active-day");
+
+    if (th.textContent.trim().toUpperCase() === dayName) {
+      th.classList.add("active-day");
+    }
+  });
+}
+highlightTodayHeader();
+
+
+const notesWindow = document.getElementById("notesWindow");
+const notesHeader = document.getElementById("notesHeader");
+const notesArea = document.getElementById("notesArea");
+
+let offsetX = 0, offsetY = 0, isDragging = false;
+
+notesHeader.addEventListener("mousedown", (e) => {
+  isDragging = true;
+  offsetX = e.clientX - notesWindow.offsetLeft;
+  offsetY = e.clientY - notesWindow.offsetTop;
+});
+
+document.addEventListener("mousemove", (e) => {
+  if (!isDragging) return;
+  notesWindow.style.left = (e.clientX - offsetX) + "px";
+  notesWindow.style.top  = (e.clientY - offsetY) + "px";
+});
+
+document.addEventListener("mouseup", () => {
+  isDragging = false;
+});
+const resizeHandle = document.getElementById("notesResize");
+
+let resizing = false;
+let startX, startY, startW, startH;
+
+resizeHandle.addEventListener("mousedown", (e) => {
+  e.preventDefault();
+  resizing = true;
+
+  startX = e.clientX;
+  startY = e.clientY;
+  startW = notesWindow.offsetWidth;
+  startH = notesWindow.offsetHeight;
+});
+
+document.addEventListener("mousemove", (e) => {
+  if (!resizing) return;
+
+  const newW = startW + (e.clientX - startX);
+  const newH = startH + (e.clientY - startY);
+
+  notesWindow.style.width  = Math.max(180, newW) + "px";
+  notesWindow.style.height = Math.max(140, newH) + "px";
+});
+
+document.addEventListener("mouseup", () => {
+  if (!resizing) return;
+  resizing = false;
+
+  localStorage.setItem("notesWidth", notesWindow.offsetWidth);
+  localStorage.setItem("notesHeight", notesWindow.offsetHeight);
+});
+
+const savedW = localStorage.getItem("notesWidth");
+const savedH = localStorage.getItem("notesHeight");
+
+if (savedW && savedH) {
+  notesWindow.style.width  = savedW + "px";
+  notesWindow.style.height = savedH + "px";
+}
+
+notesArea.value = localStorage.getItem("notesText") || "";
+
+notesArea.addEventListener("input", () => {
+  localStorage.setItem("notesText", notesArea.value);
+});
+const notesBtn = document.getElementById("notesToggleBtn");
+
+notesWindow.style.display = "none";
+
+notesBtn.addEventListener("click", () => {
+  const isVisible = notesWindow.style.display === "flex";
+
+  if (isVisible) {
+    notesWindow.style.display = "none";
+  } else {
+    notesWindow.style.display = "flex";
+  }
+});
+
+function openDiscord() {
+  window.location.href = "discord:https://discord.com/channels/1469480626536059105/1469480627312001260 ";
+}
+function openEpicGame() {
+window.location.href = "com.epicgames.launcher://";
+}
+
+(function(){
+  const tbody3 = document.querySelector("#deathTimer3 tbody");
+  if(!tbody3) return;
+
+ const table3Data = [
+  { id: "ABYSS_F1", respawnHours: 72, next: null, group: "ABC", offset: 0, enabled: true },
+  { id: "ABYSS_F2", respawnHours: 72, next: null, group: "ABC", offset: 0, enabled: true },
+  { id: "ABYSS_F3", respawnHours: 0,  next: null, group: "ABC", offset: 0, enabled: false },
+  { id: "ABYSS_F4", respawnHours: 0,  next: null, group: "ABC", offset: 0, enabled: false }
+];
+
+const savedOffsets = JSON.parse(
+  localStorage.getItem("table3Offsets") || "{}"
+);
+
+table3Data.forEach((e, i) => {
+  if (savedOffsets[i] !== undefined) {
+    e.offset = savedOffsets[i];
+  }
+});
+   
+
+
+function initTable3(){
+  tbody3.innerHTML = "";
+
+  table3Data.forEach((e, i) => {
+    const tr = document.createElement("tr");
+    tr.dataset.index = i;
+
+    tr.innerHTML = `
+      <td class="t3-name">${t(e.id)}</td>
+      <td class="t3-status">—</td>
+      <td class="t3-time">—</td>
+      <td contenteditable="true"
+          data-action="group"
+          data-i="${i}">${e.group}</td>
+      <td class="plann-cell"
+          contenteditable="true"
+          data-table="3"
+          data-event="abyss_${i}">_</td>
+      <td>
+        <div class="pm-col">
+          <button data-action="plus" data-i="${i}">+</button>
+          <button data-action="minus" data-i="${i}">−</button>
+        </div>
+      </td>
+    `;
+
+    tbody3.appendChild(tr);
+  });
+}
+  
+function updateTable3(){
+  const now = getServerNow();
+  let tableAlert = false;
+
+  table3Data.forEach((e, i) => {
+    const tr = tbody3.querySelector(`tr[data-index="${i}"]`);
+    if (!tr) return;
+
+    const nameCell = tr.children[0];
+     if (nameCell) {
+       nameCell.textContent = t(e.id);
+  }
+    const statusCell = tr.children[1];
+    const timeCell   = tr.children[2];
+
+    if (e.enabled === false) {
+      statusCell.textContent = "⚫";
+      timeCell.textContent = t("PAUSE");
+      return;
+    }
+
+    const CYCLE = 3 * 24 * 60 * 60 * 1000;
+    const ACTIVE = 10 * 60 * 1000;
+
+    const baseNext = getNextAbyssTime(getAbyssBaseTime(), now);
+    let next = new Date(baseNext.getTime() + e.offset * 60000);
+
+    if (now > next.getTime() + ACTIVE) {
+      next = new Date(next.getTime() + CYCLE);
+      abyssAlertPlayed = {};
+    }
+
+    e.next = next;
+    const diff = next - now;
+
+    if (diff <= 0 && diff >= -ACTIVE) {
+      statusCell.textContent = "🔴";
+      timeCell.textContent = t("NOW");
+      tableAlert = true;
+    } else {
+      statusCell.textContent = "🟢";
+      const locale = currentLang === "en" ? "en-US" : "ru-RU";
+
+      timeCell.innerHTML =
+  next.toLocaleDateString(locale) + "<br>" +
+  next.toLocaleTimeString(locale, {
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: currentLang === "en"
+  });
+    }
+
+    ABYSS_ALERTS.forEach(ms => {
+      const key = e.id + "_" + ms;
+      if (diff <= ms && diff > ms - 1000 && !abyssAlertPlayed[key]) {
+        if (soundEnabled) {
+          const s = document.getElementById("sound");
+          s.currentTime = 0;
+          s.volume = globalVolume;
+          s.play().catch(()=>{});
+        }
+        abyssAlertPlayed[key] = true;
+      }
+    });
+
+    if (diff > ABYSS_ALERTS[0]) abyssAlertPlayed = {};
+  });
+
+  document.body.classList.toggle("abyss-glow", tableAlert);
+}
+
+function getAbyssBaseTime() {
+       const base = new Date("2026-02-05T20:00:00");
+       return new Date(
+       base.getTime() + TIMEZONE_OFFSET_HOURS * 60 * 60 * 1000
+  );
+}
+ const ABYSS_ALERTS = [
+  10 * 60 * 1000,
+  7 * 60 * 1000,
+  4 * 60 * 1000,
+  3 * 60 * 1000,
+  1 * 60 * 1000
+];
+
+let abyssAlertPlayed = {};
+let abyssSoundPlayed = false;
+
+
+
+function shift(i, m){
+
+  table3Data[i].offset += m;
+
+  const offsetsToSave = {};
+  table3Data.forEach((e, index) => {
+    offsetsToSave[index] = e.offset;
+  });
+
+  localStorage.setItem(
+    "table3Offsets",
+    JSON.stringify(offsetsToSave)
+  );
+
+}
+  function getNextAbyssTime(base, now){
+           const CYCLE = 3 * 24 * 60 * 60 * 1000;
+
+        if (now < base) return base;
+
+           const diff = now - base;
+           const cyclesPassed = Math.floor(diff / CYCLE) + 1;
+
+           return new Date(base.getTime() + cyclesPassed * CYCLE);
+}
+
+           tbody3.addEventListener("input",(e)=>{
+           if(e.target.dataset.action==="group"){
+           table3Data[e.target.dataset.i].group=
+           e.target.innerText.trim();
+    }
+});
+tbody3.addEventListener("click", function(e){
+
+  const btn = e.target.closest("button");
+  if(!btn) return;
+
+  const action = btn.dataset.action;  
+  const index  = btn.dataset.i;
+
+  if(index === undefined) return;
+
+  if(action === "plus"){
+    shift(index, 1);
+  }
+
+  if(action === "minus"){
+    shift(index, -1);
+  }
+
+});
+
+
+window.resetTable3 = function(){
+
+  table3Data.forEach(e => e.offset = 0);
+
+  localStorage.setItem(
+    "table3Offsets",
+    JSON.stringify({})
+  );
+};
+
+window.getTable3EventsForRating = function () {
+  return table3Data
+    .filter(e => e.enabled !== false && e.next instanceof Date)
+    .map(e => ({
+      source: "table4",
+      id: e.id,
+      next: e.next
+    }));
+};
+
+
+
+
+updateTable3Language();
+initTable3();
+updateTable3();
+setInterval(updateTable3, 1000);
+window.updateTable3 = updateTable3;
+window.table3Data = table3Data;
+})();
+
+
+
+
+
+
+function updateTable3Language(){
+  const headers = document.querySelectorAll("#deathTimer3 thead th");
+
+if(headers.length >= 6){
+  headers[0].textContent = t("T3_EVENT");
+  headers[1].textContent = t("T3_STATUS");
+  headers[2].textContent = t("T3_NEXT");
+  headers[3].textContent = t("T3_GROUP");
+  headers[4].textContent = t("T3_PLAN");
+  headers[5].textContent = t("T3_SHIFT");
+}
+  if(!window.table3Data) return;
+
+  const rows = document.querySelectorAll("#deathTimer3 tbody tr");
+
+  rows.forEach((row, i) => {
+
+    const id = window.table3Data[i].id;
+
+    const nameCell = row.querySelector(".t3-name");
+    if(nameCell && t(id)){
+      nameCell.textContent = t(id);
+    }
+
+    const statusCell = row.children[1];
+
+    if(statusCell.textContent === "ПАУЗА" || statusCell.textContent === "PAUSED"){
+      statusCell.textContent = LANG[currentLang].PAUSE;
+    }
+
+    if(statusCell.textContent === "СЕЙЧАС" || statusCell.textContent === "NOW"){
+      statusCell.textContent = LANG[currentLang].NOW;
+    }
+
+  });
+
+}
+function playMarkerSound(){
+  const audio = document.getElementById("markerSound");
+  if(!audio || !soundEnabled) return;
+
+  audio.currentTime = 0;
+  audio.volume = globalVolume;
+  audio.play().catch(()=>{});
+}
+
+function playMarkerExpireSound(){
+  const audio = document.getElementById("markerExpireSound");
+  if(!audio || !soundEnabled) return;
+
+  audio.currentTime = 0;
+  audio.volume = globalVolume * 0.7;
+  audio.play().catch(()=>{});
+}
+
+function openEventMap(eventId){
+     const imgMap = {
+        ABYSS_F1: "map.jpg",
+        ABYSS_F2: "Mapa.jpg",
+        ABYSS_F3: "Mapa.jpg",
+        ABYSS_F4: "Mapa.jpg"
+};
+  if(!imgMap[eventId]) return;
+
+ currentAbyssMap = eventId;
+  document.getElementById("eventMapTitle").textContent = eventId;
+  document.getElementById("eventMapImg").src = imgMap[eventId];
+  document.getElementById("eventMapOverlay").style.display = "flex";
+
+ abyssLayer.innerHTML = "";
+  abyssMarkers
+    .filter(m => m.map === currentAbyssMap)
+    .forEach(renderAbyssMarker);
+}
+function closeEventMap(){
+  document.getElementById("eventMapOverlay").style.display = "none";
+}
+document.addEventListener("keydown", e => {
+  if (e.key !== "Escape") return;
+
+  const eventOverlay = document.getElementById("eventMapOverlay");
+  const bossOverlay  = document.getElementById("bossMapOverlay");
+
+  if (eventOverlay.style.display === "flex") {
+    closeEventMap();
+  }
+
+  if (bossOverlay.style.display === "flex") {
+    closeBossMap();
+   }
+});
+
+function clearAbyssMarkers(){
+  if(!confirm("Удалить все маркеры БЕЗДНЫ?")) return;
+
+  
+  localStorage.removeItem("abyssMapMarkers");
+  abyssMarkers = [];
+
+  console.log("Маркеры БЕЗДНЫ очищены");
+
+  
+  const layer = document.getElementById("abyssMarkerLayer");
+  if(layer) layer.innerHTML = "";
+
+  console.log("Маркеры БЕЗДНЫ очищены");
+}
+
+document.addEventListener("click", function (e) {
+
+  const row = e.target.closest("#deathTimer3 tr");
+  if (!row) return;
+
+  const index = row.dataset.index;
+  if (index === undefined) return;
+
+  // Проверяем что клик именно по первой колонке
+  const cell = e.target.closest("td");
+  if (!cell || cell.cellIndex !== 0) return;
+
+  const eventId = window.table3Data[index].id;
+  openEventMap(eventId);
+
+});
+document.getElementById("eventMapBox").onclick = function (e) {
+  e.stopPropagation();
+};
+
+document.addEventListener("click", function (e) {
+  const td = e.target.closest("#deathTimer td");
+  if (!td) return;
+
+  const row = td.parentElement;
+  const colIndex = td.cellIndex;
+
+  if (colIndex !== 0) return;
+  const rowIndex = row.rowIndex - 1;
+
+  const bossImages = [
+    "morgon.jpg",
+    "MARIONETKA NIDROK.jpg",
+    "DREVNIY DRAKON ISTERIYA.jpg",
+    "SION TEN' OTCHAYANIYA.jpg",
+    "RIGRETOYU TEN' ZLOBY.jpg",
+    "LUNOS PORCHENNYI GEROY.jpg",
+    "mapg.jpg",
+    "KOROL' ZVEREY GARDON.jpg",
+    "LEDI ZHELANIYA BELLA.jpg",
+    "KRATERIUS ISKRIVLENNYI.jpg"
+  ];
+
+  const img = bossImages[rowIndex];
+  if (!img) return;
+
+  openBossMapForce(img);
+});
+function openBossMapForce(img) {
+  document.getElementById("bossMapTitle").textContent = "Boss Map";
+  document.getElementById("bossMapImg").src = img;
+  document.getElementById("bossMapOverlay").style.display = "flex";
+}
+
+function closeBossMap() {
+  document.getElementById("bossMapOverlay").style.display = "none";
+}
+
+document.getElementById("bossMapBox").onclick = function (e) {
+  e.stopPropagation();
+};
+
+let selectedAbyssColor = null;
+
+let currentAbyssMap = null;
+
+let abyssMarkers = JSON.parse(
+  localStorage.getItem("abyssMapMarkers") || "[]"
+);
+
+const ABYSS_EMOJI = {
+  green: "🟢",
+  red: "🔴",
+  purple: "🟣",
+  blob: "blob"
+};
+function createAbyssMarker(m){
+  const el = document.createElement("div");
+  el.className = "abyss-marker";
+  el.textContent = ABYSS_EMOJI[m.color];
+  el.style.left = m.x + "px";
+  el.style.top  = m.y + "px";
+
+  abyssLayer.appendChild(el);
+}
+
+document
+.querySelectorAll("#abyssEmojiControls button")
+.forEach(btn=>{
+  btn.addEventListener("click", (e)=>{
+   e.stopPropagation();
+
+    document
+      .querySelectorAll("#abyssEmojiControls button[data-color]")
+      .forEach(b=>b.classList.remove("active"));
+
+    btn.classList.add("active");
+    selectedAbyssColor = btn.dataset.color;
+
+   console.log("Выбран эмодзи:", selectedAbyssColor);
+  });
+});
+const abyssLayer = document.getElementById("abyssMarkerLayer");
+const abyssImg   = document.getElementById("eventMapImg");
+
+abyssImg.addEventListener("click", e=>{
+  if(!selectedAbyssColor || !currentAbyssMap) return;
+
+  const rect = abyssLayer.getBoundingClientRect();
+
+const x = e.clientX - rect.left;
+const y = e.clientY - rect.top;
+
+const marker = {
+  map: currentAbyssMap,
+  color: selectedAbyssColor,
+  x,
+  y,
+  expiresAt: Date.now() + 30 * 60 * 1000 
+};
+
+renderAbyssMarker(marker);
+abyssMarkers.push(marker);
+localStorage.setItem("abyssMapMarkers", JSON.stringify(abyssMarkers));
+
+playMarkerSound();
+
+  selectedAbyssColor = null;
+  document
+    .querySelectorAll("#abyssEmojiControls button")
+    .forEach(b=>b.classList.remove("active"));
+});
+function renderAbyssMarker(m){
+  const wrap = document.createElement("div");
+  wrap.className = "abyss-marker";
+  wrap.style.display = "flex";
+  wrap.style.flexDirection = "column"; 
+  wrap.style.alignItems = "center";
+  wrap.style.justifyContent = "center";
+
+  const time = document.createElement("div");
+  time.className = "abyss-marker-time";
+
+  if(m.color === "blob"){
+    wrap.style.width = "120px";
+    wrap.style.height = "120px";
+    wrap.style.background = "rgba(173,216,230,0.3)";
+    wrap.style.borderRadius = "50%";
+    wrap.style.border = "4px solid rgba(173,216,230,0.7)";
+    wrap.textContent = ""; 
+    wrap.prepend(time);   
+  } else {
+    const emoji = document.createElement("div");
+    emoji.textContent = ABYSS_EMOJI[m.color];
+    wrap.prepend(time);  
+    wrap.appendChild(emoji);
+  }
+
+  wrap.style.left = m.x + "px";
+  wrap.style.top  = m.y + "px";
+
+  abyssLayer.appendChild(wrap);
+
+  wrap.addEventListener("click", e => e.stopPropagation());
+
+  function update(){
+    const left = m.expiresAt - Date.now();
+
+    if(left <= 0){
+      playMarkerExpireSound();
+      wrap.remove();
+      abyssMarkers = abyssMarkers.filter(x => x !== m);
+      localStorage.setItem(
+        "abyssMapMarkers",
+        JSON.stringify(abyssMarkers)
+      );
+      return false;
+    }
+
+    time.textContent = formatTime(left);
+    return true;
+  }
+
+  if (!update()) return;
+
+  const interval = setInterval(()=>{
+    if (!update()) clearInterval(interval);
+  }, 1000);
+}
+
+
+function formatTime(ms){
+  const total = Math.ceil(ms / 1000);
+  const min = Math.floor(total / 60);
+  const sec = total % 60;
+  return `${min}:${sec.toString().padStart(2,"0")}`;
+}
+document
+  .getElementById("clearAbyssMarkersBtn")
+  .addEventListener("click", e=>{
+    e.stopPropagation();
+    clearAbyssMarkers();
+  });
+  document.getElementById("eventMapBox").onclick = function(e){
+    e.stopPropagation();
+  };
+document.addEventListener("DOMContentLoaded", function(){
+
+  document.querySelectorAll('.rankTable tbody tr')
+  .forEach((row, index) => {
+
+    const savedLoc = ratingRowState[index];
+    if (!savedLoc) return;
+
+    const img = row.querySelector('.location-cell img');
+    const cell = row.querySelector('.location-cell');
+
+    if (img && emblemLibrary[savedLoc]) {
+      img.src = emblemLibrary[savedLoc];
+      cell.dataset.loc = savedLoc;
+    }
+
+  });
+
+});
+
+
+
+const table5 = document.querySelector("#deathTimer5 tbody");
+const events5 = [
+  {
+    id: 1,
+    name: "EVENT_FRACTURE",
+    hour: 11,      
+    minute: 30,
+    warned: [],
+    offset: 0,
+    status: "waiting"
+  },
+  {
+    id: 2,
+    name: "EVENT_FRACTURE",
+    hour: 19,      
+    minute: 30,
+    warned: [],
+    offset: 0,
+    status: "waiting"
+  },
+  {
+    id: 3,
+    name: "EVENT_FRACTURE",
+    hour: 20,      
+    minute: 0,
+    warned: [],
+    offset: 0,
+    status: "waiting"
+  }
+];
+
+function checkWarnings5(event) {
+  const minutes = (getNextEventTime5(event) - getServerNow()) / 60000;
+
+  [10, 7, 4, 1].forEach(min => {
+    if (minutes === min && !event.warned.includes(min)) {
+      playWarningSound();
+      event.warned.push(min);
+    }
+  });
+
+  if (minutes > 10) {
+    event.warned = [];
+  }
+}
+function getNextEventTime5(event) {
+  const now = getServerNow();
+
+  let next = new Date(now);
+
+  next.setHours(event.hour, event.minute, 0, 0); 
+
+  if (next <= now) {
+    next.setDate(next.getDate() + 1);
+  }
+
+  return new Date(next.getTime() + event.offset);
+}
+
+
+function updateStatus5(event) {
+  const now = getServerNow();
+  const eventTime = getNextEventTime5(event);
+
+  const minutes = (eventTime - now) / 60000;
+
+  if (minutes <= 10 && minutes >= -10) {
+    if (event.status !== "done") event.status = "active";
+  }
+  else if (minutes < -10 && event.status !== "done") {
+    event.status = "missed";
+  }
+  else if (event.status !== "done") {
+    event.status = "waiting";
+  }
+}
+
+function renderTable5() {
+  events5.forEach(event => {
+    const row = document.querySelector(
+      `#deathTimer5 tr[data-id="${event.id}"]`
+    );
+    if (!row) return;
+
+    const next = getNextEventTime5(event);
+
+    // ✅ название через t()
+    row.querySelector(".name").textContent = t(event.name);
+
+    // ✅ время (уже починили на шаге 1)
+    row.querySelector(".event-time").textContent =
+      formatWithTimezone(next);
+
+    const diff = next - getServerNow();
+
+    row.querySelector(".time").textContent =
+      diff > 0 ? formatCooldown5(diff) : "—";
+
+    // ✅ только цвет, без текста
+    const colorMap = {
+      waiting: "green",
+      active: "red",
+      done: "green",
+      missed: "gray"
+    };
+
+    const statusCell = row.querySelector(".status");
+
+    // ✅ текст ТОЛЬКО через t()
+    statusCell.textContent = t(event.status);
+
+    statusCell.className = `status ${colorMap[event.status]}`;
+  });
+}
+
+function formatCooldown5(ms) {
+  const totalMinutes = Math.floor(ms / 60000);
+  const hours = Math.floor(totalMinutes / 60);
+  const minutes = totalMinutes % 60;
+  return `${hours}ч ${minutes}м`;
+}
+  function applyGlow5() {
+           const isAnyActive = events5.some(event => event.status === "active");
+        if (isAnyActive) {
+           document.body.classList.add("body-glow-5");
+           } else {
+       if (!userPlanGlowLock["5"]) {
+           document.body.classList.remove("body-glow-5");
+    }
+  }
+}
+function killEvent5(id) {
+  const event = events5.find(e => e.id === id);
+  if (!event) return;
+
+  const now = getServerNow();
+  const eventTime = getNextEventTime5(event); 
+
+  const diff = (eventTime - now) / 60000;
+
+  if (diff <= 10 && diff >= -10) {
+    event.status = "done";
+    saveTable5();
+  }
+}
+
+function changeOffset5(id, value) {
+  const event = events5.find(e => e.id === id);
+  if (!event) return;
+
+  event.offset += value * 60000; 
+  saveTable5();
+}
+
+function saveTable5() {
+  localStorage.setItem("table5Data", JSON.stringify(events5));
+}
+
+function loadTable5() {
+  const data = localStorage.getItem("table5Data");
+  if (data) {
+    const parsed = JSON.parse(data);
+    parsed.forEach((saved, index) => {
+      events5[index].offset = saved.offset;
+      events5[index].status = saved.status;
+    });
+  }
+}
+
+let lastResetDay5 = null;
+
+function resetDaily5() {
+  const now = getServerNow();
+  const today = now.toISOString().slice(0, 10);
+
+  if (now.getUTCHours() === 23 && now.getUTCMinutes() === 59) {
+    if (lastResetDay5 !== today) {
+      events5.forEach(event => {
+        event.status = "waiting";
+        event.warned = [];
+      });
+      saveTable5();
+      lastResetDay5 = today;
+      console.log("TABLE 5 RESET");
+    }
+  }
+}
+  function initTable5() {
+  const tbody = document.querySelector("#deathTimer5 tbody");
+  tbody.innerHTML = "";
+
+  events5.forEach(event => {
+    const row = document.createElement("tr");
+    row.dataset.id = event.id;
+
+    row.innerHTML = `
+      <td class="name"></td>
+      <td class="event-time"></td>
+      <td class="status" data-action="kill"></td>
+      <td class="time"></td>
+      <td class="plann-cell"
+     contenteditable="true"
+      data-table="5"
+      data-event="event_${event.id}">_
+      </td>
+      <td>
+        <button onclick="changeOffset5(${event.id}, 1)">+</button>
+        <button onclick="changeOffset5(${event.id}, -1)">−</button>
+      </td>`;
+
+    tbody.appendChild(row);
+  });
+}
+
+
+
+function updateTimer5() {
+  events5.forEach(event => {
+    updateStatus5(event);
+    checkWarnings5(event);
+  });
+
+  resetDaily5();
+  renderTable5();
+  applyGlow5();
+}
+initTable5();
+
+document
+  .querySelector("#deathTimer5 tbody")
+  .addEventListener("click", function (e) {
+
+    const cell = e.target.closest(".status");
+    if (!cell) return;
+
+    const row = cell.closest("tr");
+    if (!row) return;
+
+    const id = Number(row.dataset.id);
+    if (!id) return;
+
+    killEvent5(id);
+});
+
+loadTable5();
+renderTable5();
+updateTimer5();
+setInterval(updateTimer5, 1000);
+
+
+function formatWithTimezone(date) {
+  const visual = new Date(date);
+  visual.setHours(visual.getHours() + TIMEZONE_OFFSET_HOURS);
+
+  const locale = currentLang === "en" ? "en-US" : "ru-RU";
+
+  return visual.toLocaleTimeString(locale, {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: currentLang === "en"
+  });
+}
+
+
+const table6 = document.querySelector("#deathTimer6 tbody");
+
+const TABLE6_START_DATE = "2026-02-19T20:00:00";
+
+const events6 = {
+  event2: {
+     id: "event2",
+    name: "EVENT_GUILD_DUNGEON_1",
+    type: "weekly",
+    weekday: 6, 
+    hour: 19,
+    minute: 0,
+    warned: [],
+    offset: 0
+  },
+  event3: {
+     id: "event3",
+    name: "EVENT_FORTRESS",
+    type: "biweekly",
+    base: TABLE6_START_DATE,
+    warned: [],
+    offset: 0
+  },
+  event4: {
+     id: "event4",
+    name: "EVENT_BATTLE",
+    type: "biweekly",
+    base: "2026-02-21T20:30:00",
+    warned: [],
+    offset: 0
+ },
+  event5: {
+     id: "event5",
+    name: "EVENT_GUILD_DUNGEON_2",
+    type: "weekly",
+    weekday: 5,
+    hour: 19,
+    minute: 0,
+    warned: [],
+    offset: 0
+   }
+  
+};
+window.events6 = events6;
+
+function formatTime6(date) {
+  const locale = currentLang === "en" ? "en-US" : "ru-RU";
+
+  return date.toLocaleTimeString(locale, {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: currentLang === "en"
+  });
+}
+
+function formatCooldown6(ms) {
+  const totalMinutes = Math.floor(ms / 60000);
+  const days = Math.floor(totalMinutes / 1440);
+  const hours = Math.floor((totalMinutes % 1440) / 60);
+  const minutes = totalMinutes % 60;
+  return `${days}д ${hours}ч ${minutes}м`;
+}
+
+function getNextEvent6(event) {
+  const now = getServerNow();
+
+  if (event.type === "weekly") {
+    let next = new Date(now);
+    next.setHours(event.hour, event.minute, 0, 0);
+
+    const diff = (event.weekday - next.getDay() + 7) % 7;
+    next.setDate(next.getDate() + diff);
+
+    if (next <= now) next.setDate(next.getDate() + 7);
+
+    next = new Date(next.getTime() + event.offset);
+    return next;
+  }
+
+  if (event.type === "biweekly") {
+    const base = new Date(event.base);
+    let next = new Date(base);
+
+    while (next <= now) {
+      next.setDate(next.getDate() + 14);
+    }
+
+    next = new Date(next.getTime() + event.offset);
+    return next;
+  }
+}
+
+function applyGlow6(row, isActiveWindow) {
+  row.classList.remove("active-glow-6");
+
+  if (isActiveWindow) {
+    row.classList.add("active-glow-6");
+  }
+}
+
+function applyBodyGlow6() {
+  const isAnyActive = Object.values(events6).some(event => {
+    const next = getNextEvent6(event);
+    const diffMin = Math.floor((next - getServerNow()) / 60000);
+    return diffMin <= 10 && diffMin >= -10;
+  });
+
+  if (isAnyActive) {
+    document.body.classList.add("body-glow-6");
+  } else {
+    if (!userPlanGlowLock["6"]) {
+      document.body.classList.remove("body-glow-6");
+    }
+  }
+}
+
+function updateTable6() {
+  const now = getServerNow();
+
+  Object.values(events6).forEach(event => {
+
+    const row = document.querySelector(
+      `#event-table-6 tr[data-id="${event.id}"]`
+    );
+    if (!row) return;
+
+    const nameCell = row.querySelector(".name6");
+    if (nameCell) {
+      nameCell.textContent = t(event.name);
+    }
+
+    const timeCell     = row.querySelector(".event-time6");
+    const statusCell   = row.querySelector(".status6");
+    const cooldownCell = row.querySelector(".cooldown6");
+
+    if (!timeCell || !statusCell || !cooldownCell) return;
+
+    const nextEvent = getNextEvent6(event);
+    const diff = nextEvent - now;
+    const minutesLeft = Math.floor(diff / 60000);
+
+
+    const done = localStorage.getItem("table6_done_" + event.id);
+
+   let state = "waiting";
+let color = "green";
+
+if (done === "true") {
+  state = "done";
+}
+else if (minutesLeft <= 0 && minutesLeft >= -10) {
+  state = "active";
+  color = "red";
+}
+else if (minutesLeft < -10) {
+  state = "missed";
+  color = "gray";
+}
+
+statusCell.textContent = t(state);
+statusCell.className = `status6 ${color}`;
+
+    timeCell.textContent = formatTime6(nextEvent);
+    cooldownCell.textContent = formatCooldown6(diff);
+
+    const glowWindow = minutesLeft <= 10 && minutesLeft >= -10;
+    applyGlow6(row, glowWindow);
+
+    [10, 7, 4, 1].forEach(min => {
+      if (minutesLeft === min && !event.warned.includes(min)) {
+        playWarningSound();
+        event.warned.push(min);
+      }
+    });
+
+    if (minutesLeft > 10) {
+      event.warned = [];
+    }
+  });
+}
+
+
+function adjustTime6(id, minutes) {
+  const event = events6[id];
+  if (!event) return;
+
+  event.offset += minutes * 60000;
+  localStorage.setItem("table6_offset_" + id, event.offset);
+}
+
+
+Object.values(events6).forEach(event => {
+  const saved = localStorage.getItem("table6_offset_" + event.id);
+  if (saved) event.offset = parseInt(saved);
+});
+updateTable6();
+applyBodyGlow6();
+
+let lastResetDay6 = null;
+
+function resetTable6Daily() {
+  const now = getServerNow();
+  const today = now.toDateString();
+
+  if (now.getHours() === 23 && now.getMinutes() === 59) {
+    if (lastResetDay6 !== today) {
+      Object.values(events6).forEach(event => {
+        localStorage.removeItem("table6_done_" + event.id);
+      });
+
+      lastResetDay6 = today;
+      console.log("TABLE 6 RESET");
+    }
+  }
+}
+
+
+function changeOffset6(id, value) {
+  const event = events6[id];
+  event.offset += value * 60000;
+  localStorage.setItem("table6_offset_" + id, event.offset);
+}
+
+
+
+
+
+
+function playWarningSound() {
+  if (!soundEnabled) return;
+
+  const audio = document.getElementById("sound");
+  if (!audio) return;
+
+  audio.volume = globalVolume;
+  audio.currentTime = 0;
+
+  const playPromise = audio.play();
+  if (playPromise !== undefined) {
+    playPromise.catch(() => {});
+  }
+}
+
+setInterval(() => {
+  updateTable6();
+  applyBodyGlow6();
+}, 1000);
+
+setInterval(resetTable6Daily, 1000);
+
+function collectAllEvents() {
+  const events = [];
+
+  if (typeof getNextEvent6 === "function") {
+    Object.values(events6).forEach(event => {
+      const next = getNextEvent6(event);
+
+      if (next instanceof Date) {
+        events.push({
+          source: "table6",
+          name: event.name,
+          next
+        });
+      }
+    });
+  }
+
+  if (typeof getNextEventTime5 === "function") {
+    events5.forEach(event => {
+      const next = getNextEventTime5(event);
+
+      if (next instanceof Date) {
+        events.push({
+          source: "table5",
+          name: event.name,
+          next
+        });
+      }
+    });
+  }
+
+
+
+if (typeof window.getTable1EventsForRating === "function") {
+  window.getTable1EventsForRating().forEach(e => events.push(e));
+}
+
+
+  if (typeof window.getTable3EventsForRating === "function") {
+    getTable3EventsForRating().forEach(e => {
+      if (e.next instanceof Date) {
+        events.push(e);
+      }
+    });
+  }
+
+  if (typeof window.getTable2EventsForRating === "function") {
+    getTable2EventsForRating().forEach(e => {
+      if (e.next instanceof Date) {
+        events.push(e);
+      }
+    });
+  }
+
+  return events;
+}
+
+
+
+function getNextFourEvents() {
+  const now = getServerNow();
+
+  return collectAllEvents()
+    .filter(e => e.next > now)
+    .sort((a, b) => a.next - b.next)
+    .slice(0, 4);
+}
+console.log(
+  getNextFourEvents().map(e => ({
+    src: e.source,
+    name: e.name,
+    time: e.next.toLocaleTimeString()
+  }))
+);
+
+
+
+const SOURCE_LABELS = {
+  table1: "SOURCE_WEEKLY",
+  table2: "SOURCE_DEATH",
+  table3: "SOURCE_ABYSS",
+  table5: "SOURCE_RIFT",
+  table6: "SOURCE_RAID"
+};
+function renderRatingNextStart() {
+         const rows = document.querySelectorAll(".rankTable tbody tr");
+         const events = getNextFourEvents();
+
+         rows.forEach((row, index) => {
+         const cell = row.children[1];
+
+      if (!events[index]) {
+         cell.textContent = "—";
+         return;
+      }
+   const e = events[index];
+
+   const key = SOURCE_LABELS[e.source];
+   const label = key ? t(key) : e.source;
+
+    cell.innerHTML =
+      `<small class="src ${e.source}">${label}</small><br>` +
+      `${t(e.name)}<br>` + 
+      e.next.toLocaleTimeString(); 
+  });
+}
+
+
+
+setInterval(renderRatingNextStart, 1000);
+renderRatingNextStart();
+
+
+
+
+document.addEventListener("blur", function (e) {
+  const cell = e.target.closest(".plann-cell");
+  if (!cell) return;
+
+  const table = cell.dataset.table;
+  const event = cell.dataset.event;
+  const raw   = cell.textContent.trim();
+  const key   = `table${table}_${event}`;
+
+  const text = raw.toLowerCase();
+
+  if (text === "" || text === "_" || text === "-" || text === "off") {
+    UserPlanTimer.removePlan(key);
+
+    cell.textContent = "_";
+    cell.classList.remove("plan-error", "plan-active");
+    return;
+  }
+
+  if (!UserPlanTimer.isValidTime(raw)) {
+    cell.classList.add("plan-error");
+    cell.classList.remove("plan-active");
+    return;
+  }
+
+  UserPlanTimer.setPlan(key, raw);
+
+  cell.classList.remove("plan-error");
+  cell.classList.add("plan-active");
+
+  setTimeout(() => {
+    cell.classList.remove("plan-active");
+  }, 3000);
+}, true);
+
+function restoreUserPlans() {
+  document.querySelectorAll(".plann-cell").forEach(cell => {
+    const table = cell.dataset.table;
+    const event = cell.dataset.event;
+    const key = `table${table}_${event}`;
+
+    const plan = UserPlanTimer.getPlan(key);
+    if (plan) {
+      cell.textContent = plan.timeText;
+    }
+  });
+}
+function applyTranslations() {
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.dataset.i18n;
+    el.textContent = t(key);
+  });
+}
+restoreUserPlans();
+    setInterval(() => {
+  UserPlanTimer.checkAlerts((key, plan) => {
+    const found = findRowByPlanKey(key);
+    if (!found || !found.row) return;
+
+    playWarningSound();
+    flashTableRow(found.row, found.table);
+    console.log("USER PLAN FIRE:", key, plan.timeText);
+  });
+}, 1000);
+
+document.addEventListener("focusin", e => {
+  const cell = e.target.closest(".plann-cell");
+  if (!cell) return;
+
+  userPlanGlowLock[cell.dataset.table] = true;
+});
+
+
+
+applyTranslations();
+buildTable1();
+buildTable2Header();
+loadDeathTable();
+renderDeathTable();
+</script>
+<script src="controlPanel.js"></script>
+ </body>
+</html>
